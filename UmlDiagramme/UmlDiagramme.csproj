@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Aktivitätsdiagramm.png" />
+    <None Remove="Images\Anwendungsfall-Diagramm.png" />
+    <None Remove="Images\Klassendiagramm.png" />
+    <None Remove="Images\Kommunikationsdiagramm.png" />
+    <None Remove="Images\Objektdiagramm.png" />
+    <None Remove="Images\Sequenzdiagramm.png" />
+    <None Remove="Images\Zustandsdiagramm.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Aktivitätsdiagramm.png" />
+    <EmbeddedResource Include="Images\Anwendungsfall-Diagramm.png" />
+    <EmbeddedResource Include="Images\Klassendiagramm.png" />
+    <EmbeddedResource Include="Images\Kommunikationsdiagramm.png" />
+    <EmbeddedResource Include="Images\Objektdiagramm.png" />
+    <EmbeddedResource Include="Images\Sequenzdiagramm.png" />
+    <EmbeddedResource Include="Images\Zustandsdiagramm.png" />
+  </ItemGroup>
+
+</Project>
