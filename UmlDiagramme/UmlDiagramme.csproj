@@ -11,21 +11,35 @@
   <ItemGroup>
     <None Remove="Images\Aktivitätsdiagramm.png" />
     <None Remove="Images\Anwendungsfall-Diagramm.png" />
+    <None Remove="Images\Baum-Topologie.png" />
+    <None Remove="Images\Bus-topologie.png" />
     <None Remove="Images\Klassendiagramm.png" />
     <None Remove="Images\Kommunikationsdiagramm.png" />
+    <None Remove="Images\linie-topologie.png" />
     <None Remove="Images\Objektdiagramm.png" />
+    <None Remove="Images\ring-topologie.png" />
     <None Remove="Images\Sequenzdiagramm.png" />
+    <None Remove="Images\stern-topologie.png" />
+    <None Remove="Images\Unregelmäßige Topologie.png" />
+    <None Remove="Images\Vollständig vermaschte Topologie.png" />
     <None Remove="Images\Zustandsdiagramm.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\Aktivitätsdiagramm.png" />
-    <EmbeddedResource Include="Images\Anwendungsfall-Diagramm.png" />
-    <EmbeddedResource Include="Images\Klassendiagramm.png" />
-    <EmbeddedResource Include="Images\Kommunikationsdiagramm.png" />
-    <EmbeddedResource Include="Images\Objektdiagramm.png" />
-    <EmbeddedResource Include="Images\Sequenzdiagramm.png" />
-    <EmbeddedResource Include="Images\Zustandsdiagramm.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Aktivitätsdiagramm.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Anwendungsfall-Diagramm.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\Baum-Topologie.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\Bus-Topologie.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Klassendiagramm.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Kommunikationsdiagramm.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\linie-topologie.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Objektdiagramm.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\Ring-Topologie.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Sequenzdiagramm.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\Stern-Topologie.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\Unregelmäßige Topologie.png" />
+    <EmbeddedResource Include="Images\NetworkTopologies\Vollständig vermaschte Topologie.png" />
+    <EmbeddedResource Include="Images\UmlDiagramme\Zustandsdiagramm.png" />
   </ItemGroup>
 
 </Project>

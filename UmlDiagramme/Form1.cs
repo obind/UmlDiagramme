@@ -10,18 +10,22 @@ namespace UmlDiagramme
     public partial class Form1 : Form
     {
         private List<string> _umlTypes;
-        private int _currentUmlTypeIndex;
+        private List<string> _networkTopologies;
+        private int _currentIndex;
         private Random _random;
         private int _correctAnswersInARow;
+        private bool _isUmlSelected;
 
         public Form1()
         {
             InitializeComponent();
             InitializeUmlTypes();
+            InitializeNetworkTopologies();
 
             _random = new Random();
             _correctAnswersInARow = 0;
-            LoadRandomUmlType();
+            _isUmlSelected = true;
+            LoadRandomItem();
         }
 
         private void InitializeUmlTypes()
@@ -40,6 +44,28 @@ namespace UmlDiagramme
             listBoxUmlTypes.DataSource = _umlTypes;
         }
 
+        private void InitializeNetworkTopologies()
+        {
+            _networkTopologies = new List<string>
+            {
+                "Stern-Topologie",
+                "Ring-Topologie",
+                "Bus-Topologie",
+                "Baum-Topologie",
+                "Vollständig vermaschte Topologie",
+                "Unregelmäßige Topologie"
+            };
+            listBoxUmlTypes.DataSource = _networkTopologies;
+        }
+
+        // Implement the event handler for the ComboBox
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _isUmlSelected = comboBoxCategory.SelectedIndex == 0;
+            listBoxUmlTypes.DataSource = _isUmlSelected ? _umlTypes : _networkTopologies;
+            LoadRandomItem();
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             ConfirmSelection();
@@ -48,14 +74,14 @@ namespace UmlDiagramme
         private void ConfirmSelection()
         {
             string selectedItem = (string)listBoxUmlTypes.SelectedItem;
-            string currentUmlType = _umlTypes[_currentUmlTypeIndex];
+            string currentItem = _isUmlSelected ? _umlTypes[_currentIndex] : _networkTopologies[_currentIndex];
 
-            if (selectedItem == currentUmlType)
+            if (selectedItem == currentItem)
             {
                 lblResult.ForeColor = Color.Green;
                 lblResult.Text = "Richtig!";
                 _correctAnswersInARow++;
-                LoadRandomUmlType();
+                LoadRandomItem();
             }
             else
             {
@@ -65,18 +91,17 @@ namespace UmlDiagramme
             }
         }
 
-
-
-        private void LoadRandomUmlType()
+        private void LoadRandomItem()
         {
-            _currentUmlTypeIndex = _random.Next(_umlTypes.Count);
-            ShowUmlDiagram(_umlTypes[_currentUmlTypeIndex]);
+            _currentIndex = _random.Next(_isUmlSelected ? _umlTypes.Count : _networkTopologies.Count);
+            ShowDiagram(_isUmlSelected ? _umlTypes[_currentIndex] : _networkTopologies[_currentIndex]);
         }
 
-
-        private void ShowUmlDiagram(string umlType)
+        private void ShowDiagram(string itemName)
         {
-            string resourceName = $"UmlDiagramme.Images.{umlType}.png";
+            string category = _isUmlSelected ? "UmlDiagramme" : "NetworkTopologies";
+            string resourceName = $"UmlDiagramme.Images.{category}.{itemName}.png";
+
 
             using Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
             if (imageStream != null)
@@ -85,14 +110,17 @@ namespace UmlDiagramme
             }
             else
             {
-                MessageBox.Show($"Bild für {umlType} nicht gefunden. Bitte stellen Sie sicher, dass das Bild als eingebettete Ressource im Projekt vorhanden ist.");
+                MessageBox.Show($"Bild für {itemName} nicht gefunden. Bitte stellen Sie sicher, dass das Bild als eingebettete Ressource im Projekt vorhanden ist.");
             }
         }
+
 
         private void listBoxUmlTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
     }
 }
+
+
+

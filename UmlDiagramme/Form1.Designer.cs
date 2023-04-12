@@ -2,6 +2,8 @@
 {
     partial class Form1
     {
+        private ComboBox comboBoxCategory;
+
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -33,6 +35,7 @@
             btnConfirm = new Button();
             lblTitle = new Label();
             lblResult = new Label();
+            comboBoxCategory = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDiagram).BeginInit();
             SuspendLayout();
             // 
@@ -61,6 +64,20 @@
             listBoxUmlTypes.TabIndex = 1;
             listBoxUmlTypes.SelectedIndexChanged += listBoxUmlTypes_SelectedIndexChanged;
             // 
+
+            // 
+            // comboBoxCategory
+            // 
+            comboBoxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCategory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBoxCategory.FormattingEnabled = true;
+            comboBoxCategory.Items.AddRange(new object[] { "UML-Diagramme", "Netzwerk-Topologien" });
+            comboBoxCategory.Location = new Point(1050, 20);
+            comboBoxCategory.Name = "comboBoxCategory";
+            comboBoxCategory.Size = new Size(300, 29);
+            comboBoxCategory.TabIndex = 5;
+            comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
+
             // btnConfirm
             // 
             btnConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -109,6 +126,8 @@
             Controls.Add(pictureBoxDiagram);
             Controls.Add(lblResult);
             Controls.Add(lblTitle);
+            Controls.Add(comboBoxCategory);
+
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
